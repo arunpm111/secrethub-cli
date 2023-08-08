@@ -11,7 +11,7 @@ RUN apk add --update make
 COPY . .
 RUN make build
 
-FROM alpine
+FROM alpine:3.18.3
 COPY --from=build /build/secrethub /usr/bin/secrethub
 RUN apk add --no-cache ca-certificates && \
     update-ca-certificates
